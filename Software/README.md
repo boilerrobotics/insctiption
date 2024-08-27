@@ -1,5 +1,47 @@
 # Tutorial Module
 
+The goal is of this tutorial is to give new members fundamental understanding of software and frameworks that we use to operate the rover.
+By the end of this tutorial, you should understand following topics
+
+- Basic Git workflow
+- Why and how to use Robot Operating System (ROS)
+- How to communicate between multiple machines
+- Create and control a rover in Gazebo (simulator)
+
+Please note that this tutorial only touches the surface of software development world.
+It is highly recommend to reading more documents or tutorials and keep practicing.
+Additionally, Linux, ROS, Gazebo and many other pieces of software we use are in active development.
+It means that new features are adding continuously.
+Please feel free to submit pull requests for updating/revising this tutorial.
+
+## Git
+
+### What are Git and GitHub? Why should you use it?
+
+**Git** is a version control system that will keep tracking changes of your code. There are other version control systems, for example, [Subversion (SVN)](https://subversion.apache.org/) or [Mercurial](https://www.mercurial-scm.org/).
+However, Git is the most popular choice as it is easy to use and supported by many cloud source code hosting platforms.
+
+**GitHub** is a cloud platform to host your source code that using Git.
+It not only host your code, but also has multiple features for collaborating among developers, such as issues, discussions, or project boards.
+There are other platforms e.g. [GitLab](https://about.gitlab.com/why-gitlab/) or [Bitbucket](https://bitbucket.org/product).
+But GitHub is the most popular choice.
+
+With Git, you will no longer need to create a multiple files as back up.
+You can see a full history of your development.
+In each commit, you will see the timestamp, comments, and changes line by line.
+You will be able to reactivate to any commits at anytime.
+
+Branching is also a powerful feature of Git.
+By default, your repository has a "main" (or master) branch.
+You can create branches from the main branch or any branches.
+You (or your team) will add new code or features to branches instead of the main branches.
+Until the point that you feel that the new features are ready (usually after testing and review), you can create a **pull request** to merge your branch back to the main branch.
+This procedure will ensure that your main branch is always clean and contain functional code.
+
+**Note** GitHub could be your online coding portfolio/resume. There is a high chance that the potential employers will look at your GitHub. It is a good idea to have one and know how to use it.
+
+### Git Workflow
+
 ## Install Software
 
 Our core software framework is Robot Operating System or [ROS](https://www.ros.org/).
@@ -163,11 +205,3 @@ Now that you have made a publisher and subscriber, you've successfully gotten co
 In order to do this, you will first want to make a few changes to your publisher code. First of all, alter the message being sent so that it now says your name instead of constantly counting. Then, you will need to set the topic to "name". Your publisher's topic needs to match the topic of the subscriber, so this is what we will be using in this example.
 
 You will also need to change your network settings in VirtualBox. Under Network, you will just need to change from NAT to Bridged Adapter so that you can send and receive messages. Once you have done this and are connected to the same network as the subscriber node, make sure your domain id matches that of the receiving computer.
-
-## Mini-rover
-
-Now that you can communicate between different machines, it's time to apply that to something more like the rover. This is in the form of the "mini-rover" which is a small 6 wheel robot with a RaspberryPi. The Pi will be running a node that subscribes to the topic "cmd_vel" and then sets motor speeds based on the information it receives from there. The mini-rover code can be found [here](https://github.com/boilerrobotics/rover-code/blob/master/rover/src/minirover/minirover/driver.py).
-
-The mini-rover takes in a different kind of message than the publisher and subscriber you have worked with so far. Instead of a string, this topic uses something called a Twist. A twist is essentially a special data type with 2 categories: linear and angular. Each of these contain the variables x, y, and z. For the mini-rover, we only care about the x value from linear and the z value from angular, which control the speeds of the left and right sides of the rover, respectively.
-
-Your task is to write a node that sends a command to control the mini-rover. You must use Twist message type and send the command to "cmd_vel" topic. Other than that, you have freedom on designing your node.
