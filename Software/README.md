@@ -6,7 +6,7 @@ By the end of this tutorial, you should understand following topics
 - Basic Git workflow
 - Why and how to use Robot Operating System (ROS)
 - How to communicate between multiple machines
-- Create and control a rover in Gazebo (simulator)
+<!-- - Create and control a rover in Gazebo (simulator) -->
 
 Please note that this tutorial only touches the surface of software development world.
 It is highly recommend to reading more documents or tutorials and keep practicing.
@@ -40,7 +40,7 @@ This procedure will ensure that your main branch is always clean and contain fun
 
 **Note** GitHub could be your online coding portfolio/resume. There is a high chance that the potential employers will look at your GitHub. It is a good idea to have one and know how to use it.
 
-### Git Workflow
+<!-- ### Git Workflow -->
 
 ## Install Software
 
@@ -54,31 +54,41 @@ We also highly recommend to create a virtual machine and install ROS on it.
 Therefore, you will not mess up with your host machine.
 The list below is software you need to install.
 
-1. Virtual Machine. We will need to install Ubuntu in the machine.
-   The recommendation is [Virtual Box](https://www.virtualbox.org/).
-
-2. [Ubuntu 22.04](https://ubuntu.com/download/desktop) (LTS - Long Term Support). This is a first tier support by ROS.
+1. [Ubuntu 22.04](https://ubuntu.com/download/desktop) (LTS - Long Term Support). This is a first tier support by ROS.
    You are welcome to choose any [flavors](https://ubuntu.com/desktop/flavours) that you want.
 
-3. [ROS 2 Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
+2. [ROS 2 Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
 
-Note: The new ROS Jazzy will be release on May 2024.
-ROS Jazzy will likely to expect Ubuntu 24.04 (Noble Numbat) as first tier support which will be released on April 2024.
-The tutorial instruction will be updated to new version of ROS and Ubuntu once the code is tested.
-Until then, it is recommended to stay with Ubuntu 22.04 & ROS Humble.
+Since ROS can requires Ubuntu, if your machine is not running Ubuntu, you will have a few options as follow.
 
-Note 2: Jetson TX2 only cannot run JetPack SDK newer than version 4.
-The latest JetPack SDK 4 is 4.6.4 which derived from Ubuntu 18.04.
-If you prefer to dig into Jetson and JetPack SDK, you will need to install Ubuntu 18.04 (and ROS Eloquent) instead of Ubuntu 22.04.
+Note. Any distro in Ubuntu family will work, such as, Kubuntu, Lubuntu, Linux Mint, POP! OS.
 
-### Installation Guide
+Note2. ROS has 3 tiers of target OS, you can check [here](https://www.ros.org/reps/rep-2000.html#humble-hawksbill-may-2022-may-2027). It is possible that you can use ROS directly without Ubuntu.
+
+| Platform | VM                                         | WSL | Docker |
+| -------- | ------------------------------------------ | --- | ------ |
+| Windows  | [Link](#virtual-box-for-windows-and-linux) |     |
+| MacOS    | [link](https://mac.getutm.app/)            | NA  |
+| Linux    | [Link](#virtual-box-for-windows-and-linux) | NA  |
+
+<!-- ### Option Comparison -->
+
+<!-- #### Dual-boot -->
+
+<!-- #### Virtual Machine (VM) -->
+
+<!-- #### Windows Linux Subsystem -->
+
+<!-- #### Docker  -->
+
+### Virtual Box (For Windows and Linux)
 
 1. Create a new virtual machine. We recommend to set the machine spec as following
 
 - Type: Linux
 - Version: Ubuntu (64-bit)
 - Memory: 4096 MB or more (If you local machine has less than 8GB of RAM, you may need to use lightweight Ubuntu instead)
-- Virtual Hard Drive: 25 GB or more (You will create a Dynamic VirtualBox Disk Image. It will take the actual space the VM use but not more than 25GB or at the capacity you allow it to use)
+- Virtual Hard Drive: 35 GB or more (You will create a Dynamic VirtualBox Disk Image. It will take the actual space the VM use but not more than 35 GB or at the capacity you allow it to use)
 
 2. Mount the Ubuntu ISO that you download by clicking settings -> Storage. Click on CD drive icon then choose the disk file.
 
@@ -90,21 +100,23 @@ If you prefer to dig into Jetson and JetPack SDK, you will need to install Ubunt
    If you forget the password, there is no way to recover it.
    You will need this password to install software packages later.
 
-4. Follow this [tutorial](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html) to install ROS.
+### ROS Installation Guide
 
-5. You can choose either (but not both) "desktop" or "base".
+1. Follow this [tutorial](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html) to install ROS.
+
+2. You can choose either (but not both) "desktop" or "base".
    The base version has everything we are using right now.
    The desktop version has tools that could be beneficial but we don't use it often.
    If you choose to install the base version, keep in mind that you might not be able to run some commands.
    For more detail about the difference, check this [document](https://www.ros.org/reps/rep-2001.html#humble-hawksbill-may-2022-may-2027).
 
-6. At the end, run the following command, it will add a script to activate ROS every time you open the new terminal.
+3. At the end, run the following command, it will add a script to activate ROS every time you open the new terminal.
 
 ```bash
 echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 ```
 
-7. Install `colcon`. It is a package manager.
+4. Install `colcon`. It is a package manager.
 
 ```bash
 sudo apt install python3-colcon-common-extensions
@@ -140,7 +152,7 @@ Select the location that you want to keep the source code. Then you have a sourc
 This is a list of recommended extensions
 
 - [ROS](https://marketplace.visualstudio.com/items?itemName=ms-iot.vscode-ros)
-- [Intelli Code](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode)
+- [IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode)
 - [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter)
 - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
@@ -205,3 +217,5 @@ Now that you have made a publisher and subscriber, you've successfully gotten co
 In order to do this, you will first want to make a few changes to your publisher code. First of all, alter the message being sent so that it now says your name instead of constantly counting. Then, you will need to set the topic to "name". Your publisher's topic needs to match the topic of the subscriber, so this is what we will be using in this example.
 
 You will also need to change your network settings in VirtualBox. Under Network, you will just need to change from NAT to Bridged Adapter so that you can send and receive messages. Once you have done this and are connected to the same network as the subscriber node, make sure your domain id matches that of the receiving computer.
+
+<!-- ## Gazebo -->
