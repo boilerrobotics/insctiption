@@ -18,12 +18,14 @@ Please feel free to submit pull requests for updating/revising this tutorial.
 
 ### What are Git and GitHub? Why should you use it?
 
-**Git** is a version control system that will keep tracking changes of your code. There are other version control systems, for example, [Subversion (SVN)](https://subversion.apache.org/) or [Mercurial](https://www.mercurial-scm.org/).
+**Git** is a version control system that will keep tracking changes of your code.
+There are other version control systems, for example, [Subversion (SVN)](https://subversion.apache.org/) or [Mercurial](https://www.mercurial-scm.org/).
 However, Git is the most popular choice as it is easy to use and supported by many cloud source code hosting platforms.
 
 **GitHub** is a cloud platform to host your source code that using Git.
 It not only host your code, but also has multiple features for collaborating among developers, such as issues, discussions, or project boards.
-There are other platforms e.g. [GitLab](https://about.gitlab.com/why-gitlab/) or [Bitbucket](https://bitbucket.org/product).
+There are other platforms e.g.
+[GitLab](https://about.gitlab.com/why-gitlab/) or [Bitbucket](https://bitbucket.org/product).
 But GitHub is the most popular choice.
 
 With Git, you will no longer need to create a multiple files as back up.
@@ -38,7 +40,9 @@ You (or your team) will add new code or features to branches instead of the main
 Until the point that you feel that the new features are ready (usually after testing and review), you can create a **pull request** to merge your branch back to the main branch.
 This procedure will ensure that your main branch is always clean and contain functional code.
 
-**Note** GitHub could be your online coding portfolio/resume. There is a high chance that the potential employers will look at your GitHub. It is a good idea to have one and know how to use it.
+**Note** GitHub could be your online coding portfolio/resume.
+There is a high chance that the potential employers will look at your GitHub.
+It is a good idea to have one and know how to use it.
 
 <!-- ### Git Workflow -->
 
@@ -83,18 +87,22 @@ Note2. ROS has 3 tiers of target OS, you can check [here](https://www.ros.org/re
 
 ### Virtual Box (For Windows and Linux)
 
-1. Create a new virtual machine. We recommend to set the machine spec as following
+1. Create a new virtual machine.
+   We recommend to set the machine spec as following
 
 - Type: Linux
 - Version: Ubuntu (64-bit)
 - Memory: 4096 MB or more (If you local machine has less than 8GB of RAM, you may need to use lightweight Ubuntu instead)
-- Virtual Hard Drive: 35 GB or more (You will create a Dynamic VirtualBox Disk Image. It will take the actual space the VM use but not more than 35 GB or at the capacity you allow it to use)
+- Virtual Hard Drive: 35 GB or more (You will create a Dynamic VirtualBox Disk Image.
+  It will take the actual space the VM use but not more than 35 GB or at the capacity you allow it to use)
 
-2. Mount the Ubuntu ISO that you download by clicking settings -> Storage. Click on CD drive icon then choose the disk file.
+2. Mount the Ubuntu ISO that you download by clicking settings -> Storage.
+   Click on CD drive icon then choose the disk file.
 
 ![choose-iso](./img/select-iso.png)
 
-3. Start the machine. You will follow the installation instruction.
+3. Start the machine.
+   You will follow the installation instruction.
    Along the process, you will be a admin of this virtual machine.
    The password that you choose for it is important.
    If you forget the password, there is no way to recover it.
@@ -145,7 +153,8 @@ On the VS Code, click View -> Command Palette (Ctrl + Shift + P) then type `git:
 VS Code will ask for the URL.
 ![place url](./img/place-url.png)
 
-Select the location that you want to keep the source code. Then you have a source code in your local machine.
+Select the location that you want to keep the source code.
+Then you have a source code in your local machine.
 
 ### VS Code Extensions
 
@@ -181,21 +190,30 @@ But once you push to GitHub, it is irreversible.
 
 ## ROS 2 Basics
 
-This section will cover most of what you will need to set up a publisher and subscriber through ROS2. If you ever want additional information on what other things can be done with ROS or want to check some information, their documentation can be found [here](https://docs.ros.org/en/humble/Tutorials.html).
+This section will cover most of what you will need to set up a publisher and subscriber through ROS2.
+If you ever want additional information on what other things can be done with ROS or want to check some information, their documentation can be found [here](https://docs.ros.org/en/humble/Tutorials.html).
 
-The goal of this tutorial is to familiarize you with the fundamentals of ROS communication. This is primarily done by several "nodes" (essentially single pieces of independent code) sending and receiving messages. For more details on ROS concepts, check this [tutorial](https://docs.ros.org/en/humble/Concepts/Basic.html).
+The goal of this tutorial is to familiarize you with the fundamentals of ROS communication.
+This is primarily done by several "nodes" (essentially single pieces of independent code) sending and receiving messages.
+For more details on ROS concepts, check this [tutorial](https://docs.ros.org/en/humble/Concepts/Basic.html).
 
 ### Creating a ROS 2 workspace
 
-In order to start working with nodes through ROS, you will first need to create the workspace that they will run in. Whenever working with multiple nodes, you will want to start by setting a value called your ROS Domain ID. This essentially sets your ROS up so that nodes will be able to communicate with each other but it will ignore unrelated nodes on the same network. Each time you open a terminal, you can set this by running the command
+In order to start working with nodes through ROS, you will first need to create the workspace that they will run in.
+Whenever working with multiple nodes, you will want to start by setting a value called your ROS Domain ID.
+This essentially sets your ROS up so that nodes will be able to communicate with each other but it will ignore unrelated nodes on the same network.
+Each time you open a terminal, you can set this by running the command
 
 ```
 export ROS_DOMAIN_ID=<your_domain_id>
 ```
 
-where your_domain_id is any integer between 0 and 101. Once you have your domain id set, make sure that you consistently use the same number for other instances that you want to work together.
+where your_domain_id is any integer between 0 and 101.
+Once you have your domain id set, make sure that you consistently use the same number for other instances that you want to work together.
 
-A workspace is the directory you have ROS 2 packages in. A package is an organizational unit for your code, which allows it to be run as a node and work with other ROS features. To start, you'll want to make and enter a directory for your workspace.
+A workspace is the directory you have ROS 2 packages in.
+A package is an organizational unit for your code, which allows it to be run as a node and work with other ROS features.
+To start, you'll want to make and enter a directory for your workspace.
 
 ```
 mkdir -p ~/ros2_ws/src
@@ -206,16 +224,61 @@ Feel free to name your workspace folder whatever you would like, but make sure t
 
 ## Writing Publisher and Subscriber Nodes
 
-The simplest form of communication between nodes is a publisher and subscriber setup. One node will write a message to a specific topic (basically just a named place where the value will exist) and another node repeatedly checks that topic to see if anything has been sent. This kind of system is very useful for much of what we need for the rover. For example, one node can constantly publish the state of a joystick and another node can read this in and convert it to motor outputs.
+The simplest form of communication between nodes is a publisher and subscriber setup.
+One node will write a message to a specific topic (basically just a named place where the value will exist) and another node repeatedly checks that topic to see if anything has been sent.
+This kind of system is very useful for much of what we need for the rover.
+For example, one node can constantly publish the state of a joystick and another node can read this in and convert it to motor outputs.
 
-Please go through the [talker and listener tutorial](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html) provided in the ROS 2 documentation. This tutorial is very thorough and we strongly recommend that you do the entire process and read it carefully, particularly the section describing how the talker and listener code actually works, as this will be critical to understanding rover communication.
+Please go through the [talker and listener tutorial](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html) provided in the ROS 2 documentation.
+This tutorial is very thorough and we strongly recommend that you do the entire process and read it carefully, particularly the section describing how the talker and listener code actually works, as this will be critical to understanding rover communication.
 
 ## Communicating Across Machines
 
-Now that you have made a publisher and subscriber, you've successfully gotten communication between 2 nodes running on the same machine. The next step is to do the same process between multiple computers. The goal of this step is to successfully broadcast your name and have it appear on another computer.
+Now that you have made a publisher and subscriber, you've successfully gotten communication between 2 nodes running on the same machine.
+The next step is to do the same process between multiple computers.
+The goal of this step is to successfully broadcast your name and have it appear on another computer.
 
-In order to do this, you will first want to make a few changes to your publisher code. First of all, alter the message being sent so that it now says your name instead of constantly counting. Then, you will need to set the topic to "name". Your publisher's topic needs to match the topic of the subscriber, so this is what we will be using in this example.
+In order to do this, you will first want to make a few changes to your publisher code.
+First of all, alter the message being sent so that it now says your name instead of constantly counting.
+Then, you will need to set the topic to "name".
+Your publisher's topic needs to match the topic of the subscriber, so this is what we will be using in this example.
 
-You will also need to change your network settings in VirtualBox. Under Network, you will just need to change from NAT to Bridged Adapter so that you can send and receive messages. Once you have done this and are connected to the same network as the subscriber node, make sure your domain id matches that of the receiving computer.
+You will also need to change your network settings in VirtualBox.
+Under Network, you will just need to change from NAT to Bridged Adapter so that you can send and receive messages.
+Once you have done this and are connected to the same network as the subscriber node, make sure your domain id matches that of the receiving computer.
 
-<!-- ## Gazebo -->
+## Gazebo
+
+Gazebo is a robot simulator software.
+Gazebo can run as a standalone software in all OS, but in our case, we want to run Gazebo along with ROS.
+Therefore, we can test our ROS code.
+To install Gazebo, run the following command
+
+```bash
+ sudo apt install ros-humble-ros-gz
+```
+
+This command will install Gazebo Fortress as it is the recommended version to work with ROS Humble.
+When you read the document or tutorial, double-check the version of it.
+There are some differences as follow.
+
+| Differences  | Fortress           | Harmonic   |
+| ------------ | ------------------ | ---------- |
+| sdf version  | 1.8                | 1.10       |
+| plug-in name | libignition-gazebo | gz-sim     |
+| command      | ros_ign_xxx        | ros_gz_xxx |
+
+### Create a robot model
+
+Gazebo has good tutorials.
+It is recommended to go through all of them to understand the overall concept.
+Then follow the first two tutorials ([Building your own robot](https://gazebosim.org/docs/fortress/building_robot/) & [Moving the robot](https://gazebosim.org/docs/fortress/moving_robot/)).
+
+<!-- ### Connect with Gazebo and ROS -->
+
+<!-- ### Control the robot with joystick -->
+
+## Resources
+
+- Very good basic ROS tutorial from [Articulated Robotics](https://beta.articulatedrobotics.xyz/tutorials/)
+- ROS official [concept](https://docs.ros.org/en/humble/Concepts.html) and [tutorial](https://docs.ros.org/en/humble/Tutorials.html)
