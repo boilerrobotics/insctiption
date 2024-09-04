@@ -40,7 +40,7 @@ You (or your team) will add new code or features to branches instead of the main
 Until the point that you feel that the new features are ready (usually after testing and review), you can create a **pull request** to merge your branch back to the main branch.
 This procedure will ensure that your main branch is always clean and contain functional code.
 
-[Here is a tutorial on the basics](https://github.com/JLZ22/Git-Tutorial-for-New-Users/tree/main) (please consider giving it a star if its helpful). 
+[Here is a tutorial on the basics](https://github.com/JLZ22/Git-Tutorial-for-New-Users/tree/main) (please consider giving it a star if its helpful).
 
 **Note** GitHub could be your online coding portfolio/resume.
 There is a high chance that the potential employers will look at your GitHub.
@@ -60,7 +60,7 @@ We also highly recommend to create a virtual machine and install ROS on it.
 Therefore, you will not mess up with your host machine.
 The list below is software you need to install.
 
-1. [Ubuntu 22.04](https://ubuntu.com/download/desktop) (LTS - Long Term Support). This is a first tier support by ROS.
+1. [Ubuntu 22.04](https://releases.ubuntu.com/jammy/) (LTS - Long Term Support). This is a first tier support by ROS.
    You are welcome to choose any [flavors](https://ubuntu.com/desktop/flavours) that you want.
 
 2. [ROS 2 Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
