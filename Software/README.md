@@ -40,6 +40,8 @@ You (or your team) will add new code or features to branches instead of the main
 Until the point that you feel that the new features are ready (usually after testing and review), you can create a **pull request** to merge your branch back to the main branch.
 This procedure will ensure that your main branch is always clean and contain functional code.
 
+[Here is a tutorial on the basics](https://github.com/JLZ22/Git-Tutorial-for-New-Users/tree/main) (please consider giving it a star if its helpful). 
+
 **Note** GitHub could be your online coding portfolio/resume.
 There is a high chance that the potential employers will look at your GitHub.
 It is a good idea to have one and know how to use it.
