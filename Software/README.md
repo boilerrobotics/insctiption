@@ -6,7 +6,7 @@ By the end of this tutorial, you should understand following topics
 - Basic Git workflow
 - Why and how to use Robot Operating System (ROS)
 - How to communicate between multiple machines
-<!-- - Create and control a rover in Gazebo (simulator) -->
+- Create and control a rover in Gazebo (simulator)
 
 Please note that this tutorial only touches the surface of software development world.
 It is highly recommend to reading more documents or tutorials and keep practicing.
@@ -276,7 +276,16 @@ Gazebo has good tutorials.
 It is recommended to go through all of them to understand the overall concept.
 Then follow the first two tutorials ([Building your own robot](https://gazebosim.org/docs/fortress/building_robot/) & [Moving the robot](https://gazebosim.org/docs/fortress/moving_robot/)).
 
-<!-- ### Connect with Gazebo and ROS -->
+### Connect with Gazebo and ROS
+
+During above Gazebo tutorial, you created a keyboard interface by Gazebo.
+It should work fine, but we won't use Gazebo with the real rover.
+So, the code that send command (the Twist message) should be created and sent in from the ROS working space.
+Recall from [Writing Publisher and Subscriber Nodes](#writing-publisher-and-subscriber-nodes) section, you already wrote a publisher that send simple texts.
+Next step, you will create another publisher that read keyboard input then send the Twist message to control the rover in Gazebo.
+Keep in mind that even you make a right publisher that send the Twist message on `cmd_vel` topic, Gazebo robot won't react.
+This is because, by default, ROS and Gazebo world are not connected.
+To connect these two worlds, follow this [tutorial](https://gazebosim.org/docs/fortress/ros2_integration/)
 
 <!-- ### Control the robot with joystick -->
 
