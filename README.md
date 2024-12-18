@@ -1,20 +1,20 @@
-# knowledge
+# inscription
 
-This is knowledge book for Boiler Robotics Club
+Knowledge center for Boiler Robotics club
 
 ## Usage
 
 ### Building the book
 
-If you'd like to develop and/or build the knowledge book, you should:
+If you'd like to develop and/or build the inscription book, you should:
 
 1. Clone this repository
 2. Run `pip install -r requirements.txt` (it is recommended you do this within a virtual environment)
-3. (Optional) Edit the books source files located in the `knowledge/` directory
-4. Run `jupyter-book clean knowledge/` to remove any existing builds
-5. Run `jupyter-book build knowledge/`
+3. (Optional) Edit the books source files located in the `inscription/` directory
+4. Run `jupyter-book clean inscription/` to remove any existing builds
+5. Run `jupyter-book build inscription/`
 
-A fully-rendered HTML version of the book will be built in `knowledge/_build/html/`.
+A fully-rendered HTML version of the book will be built in `inscription/_build/html/`.
 
 ### Hosting the book
 
@@ -24,7 +24,7 @@ For GitHub and GitLab deployment specifically, the [cookiecutter-jupyter-book](h
 
 ## Contributors
 
-We welcome and recognize all contributions. You can see a list of current contributors in the [contributors tab](https://github.com/tame0001/knowledge/graphs/contributors).
+We welcome and recognize all contributions. You can see a list of current contributors in the [contributors tab](https://github.com/boilerrobotics/inscription/graphs/contributors).
 
 ## Credits
 
