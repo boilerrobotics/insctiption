@@ -1,8 +1,14 @@
-# inscription
+# Inscription
 
-Knowledge center for Boiler Robotics club
+Knowledge center for Boiler Robotics club.
+It is powered by [Jupyter-Book](https://jupyterbook.org/en/stable/intro.html).
+The book is hosted by Github page and can be accessed by this [link](https://boilerrobotics.github.io/insctiption/)
 
 ## Usage
+
+The Jupyter-Book only requires Python to operate.
+Therefore, you should be able to edit and build this book regardless of your operating system.
+Check official Python [website](https://www.python.org/downloads/) to download Python if you have not had it installed (or upgrade Python version if you have Python 3.8 or older).
 
 ### Building the book
 
@@ -16,15 +22,41 @@ If you'd like to develop and/or build the inscription book, you should:
 
 A fully-rendered HTML version of the book will be built in `inscription/_build/html/`.
 
+You can preview the book by open the file in your browser.
+If you use VS Code, you can use [Live Preview](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) extension.
+
 ### Hosting the book
 
-Please see the [Jupyter Book documentation](https://jupyterbook.org/publish/web.html) to discover options for deploying a book online using services such as GitHub, GitLab, or Netlify.
+This book (repository) has been configured to be hosted on GitHub Page.
+If you want to explore other options or create another book, please see the [Jupyter Book documentation](https://jupyterbook.org/publish/web.html).
+If you only intend to edit this book, you can skip this section.
 
-For GitHub and GitLab deployment specifically, the [cookiecutter-jupyter-book](https://github.com/executablebooks/cookiecutter-jupyter-book) includes templates for, and information about, optional continuous integration (CI) workflow files to help easily and automatically deploy books online with GitHub or GitLab. For example, if you chose `github` for the `include_ci` cookiecutter option, your book template was created with a GitHub actions workflow file that, once pushed to GitHub, automatically renders and pushes your book to the `gh-pages` branch of your repo and hosts it on GitHub Pages when a push or pull request is made to the main branch.
+To summarize the work process to create and configure this repository:
 
-## Contributors
+1. Install [Jupiter-Book](https://pypi.org/project/jupyter-book/) and [Cookiecutter](https://pypi.org/project/cookiecutter/).
+2. Use `jupyter-book create --cookiecutter .` to create a new book.
+3. Edit `.github\workflows\deploy.yml` as follow
 
-We welcome and recognize all contributions. You can see a list of current contributors in the [contributors tab](https://github.com/boilerrobotics/inscription/graphs/contributors).
+```
+# Upload the book's HTML as an artifact
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: "[your_book_name]/_build/html" <- edit this line
+```
+
+4. Config GitHub Page setting to deploy with GitHub Action ([more detail](https://jupyterbook.org/en/stable/publish/gh-pages.html)).
+5. Push change(s) to GitHub.
+
+By using Cookiecutter, most of the necessary files will be generated automatically.
+You should be able to edit, build, and preview without touching configuration file.
+However, GitHub Action configuration needs to be fixed.
+By default, the build process will compile html files to `[your_book_name]/_build/html` while GitHub Page will look for those files at `_build/html`.
+So, the files won't be found unless you edit the deploy workflow as instructed in step 3.
+
+## Editing
+
+To be continue
 
 ## Credits
 
