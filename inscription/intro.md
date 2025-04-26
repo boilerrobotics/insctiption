@@ -1,11 +1,12 @@
-# Welcome to your Jupyter Book
+# Welcome Boiler Robotics
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+This book is a knowledge base for the software team.
+The code is separated into 3 repositories.
 
-Check out the content pages bundled with this sample book to see more.
+- [rover-code](https://github.com/boilerrobotics/rover-code)
+- [base-station](https://github.com/boilerrobotics/base-station)
+- [telemetry](https://github.com/boilerrobotics/telemetry)
 
 ```{tableofcontents}
+
 ```

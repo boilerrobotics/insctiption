@@ -5,6 +5,6 @@ format: jb-book
 root: intro
 chapters:
   - file: network
-  - file: markdown
-  - file: notebooks
-  - file: markdown-notebooks
+  # - file: markdown
+  # - file: notebooks
+  # - file: markdown-notebooks
