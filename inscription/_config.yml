@@ -7,7 +7,7 @@
 # Book settings
 title: Inscription # The title of the book. Will be placed in the left navbar.
 author: Boiler Robotics Club # The author of the book
-copyright: "2024" # Copyright year to be placed in the footer
+copyright: "2025" # Copyright year to be placed in the footer
 logo: logo.png # A path to the book logo
 
 # Force re-execution of notebooks on each build.
@@ -35,3 +35,4 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  favicon: logo.png # A path to the book favicon
